@@ -13,6 +13,18 @@ import {
   Col,
   InfoTile,
 } from "../components/Layout";
+const SectionCardData = [
+  {
+    image: "/assets/trending-tile.svg",
+    title: "Community bets",
+    text: "Choose an event and a bet type like game winner, most points, or over under points.  Bet on the current trend for bets.",
+  },
+  {
+    image: "/assets/head2head-tile.svg",
+    title: "Head to head bets",
+    text: "Bet the way you want! Set your Wager/Return and create a custom bet, or simply take a bet against another player.",
+  },
+];
 const Home = () => {
   const router = useRouter();
   const [signUpOpened, setSignUpOpened] = useState<number>(-1);
@@ -39,22 +51,20 @@ const Home = () => {
         <SectionCard title="How do you want to play?">
           <Container>
             <Row>
-              <Col>
-                <InfoTile
-                  image="/assets/trending-tile.svg"
-                  title="Community bets"
-                  text="Choose an event and a bet type like game winner, most points, or over under points.  Bet on the current trend for bets."
-                  onClick={() => router.push("/Live")}
-                />
-              </Col>
-              <Col>
-                <InfoTile
-                  image="/assets/head2head-tile.svg"
-                  title="Head to head bets"
-                  text="Bet the way you want! Set your Wager/Return and create a custom bet, or simply take a bet against another player."
-                  onClick={() => router.push("/Live")}
-                />
-              </Col>
+              {SectionCardData.map((val, index) => {
+                return (
+                  <>
+                    <Col key={index}>
+                      <InfoTile
+                        image={val.image}
+                        title={val.title}
+                        text={val.text}
+                        onClick={() => router.push("/Live")}
+                      />
+                    </Col>
+                  </>
+                );
+              })}
             </Row>
           </Container>
         </SectionCard>

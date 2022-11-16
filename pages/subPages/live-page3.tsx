@@ -41,6 +41,7 @@ const Page3 = (props: PageProps) => {
                     />
                     <Dropdown>
                       <option>Featured</option>
+                      <option>1</option>
                     </Dropdown>
                   </div>
                   <div>
